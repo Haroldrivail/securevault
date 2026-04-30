@@ -1,0 +1,8 @@
+{"timestamp":"2026-04-30T10:15:30.123456Z","operation":"init","user":"alice","process_id":12345,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:16:45.789012Z","operation":{"set":{"key":"API_KEY"}},"user":"alice","process_id":12346,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:17:12.345678Z","operation":{"set":{"key":"DB_PASSWORD"}},"user":"alice","process_id":12347,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:18:00.901234Z","operation":{"get":{"key":"API_KEY"}},"user":"alice","process_id":12348,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:19:30.567890Z","operation":{"get":{"key":"MISSING_KEY"}},"user":"alice","process_id":12349,"success":false,"error_message":"Secret 'MISSING_KEY' introuvable dans le vault"}
+{"timestamp":"2026-04-30T10:20:15.234567Z","operation":{"list":{"tag_filter":"production"}},"user":"alice","process_id":12350,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:21:45.890123Z","operation":{"delete":{"key":"API_KEY"}},"user":"alice","process_id":12351,"success":true,"error_message":null}
+{"timestamp":"2026-04-30T10:22:30.456789Z","operation":"rotate_key","user":"alice","process_id":12352,"success":true,"error_message":null}
