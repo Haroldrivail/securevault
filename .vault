@@ -1,0 +1,8 @@
+┌────────────────────────────────────────────────────────┐
+│  MAGIC (8 bytes)   : "SVAULT\x00\x01"                 │
+│  VERSION (4 bytes) : u32, little-endian                │
+│  SALT (32 bytes)   : sel Argon2                        │
+│  PAYLOAD_LEN (8 b) : u64, taille du ciphertext         │
+│  PAYLOAD (N bytes) : AES-GCM(bincode(Vault))           │
+│  NONCE (12 bytes)  : nonce AES-GCM                     │
+└────────────────────────────────────────────────────────┘

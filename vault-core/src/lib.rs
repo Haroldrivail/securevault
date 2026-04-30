@@ -22,3 +22,4 @@ pub mod types;
 // Au lieu de `vault_core::types::VaultEntry`, on peut écrire `vault_core::VaultEntry`.
 pub use error::{VaultError, VaultResult};
 pub use types::{Secret, Vault, VaultEntry};
+pub mod storage;
