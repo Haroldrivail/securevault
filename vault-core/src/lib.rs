@@ -1,4 +1,5 @@
 // Déclarer les modules — Rust cherche vault-core/src/nom_module.rs
+pub mod audit;
 pub mod crypto;
 pub mod error;
 pub mod types;
@@ -20,6 +21,7 @@ pub mod types;
 
 // Ré-exporter les types les plus utilisés pour simplifier les imports côté appelant.
 // Au lieu de `vault_core::types::VaultEntry`, on peut écrire `vault_core::VaultEntry`.
+pub use audit::{AuditEntry, AuditLog, AuditOperation};
 pub use error::{VaultError, VaultResult};
 pub use types::{Secret, Vault, VaultEntry};
 pub mod storage;

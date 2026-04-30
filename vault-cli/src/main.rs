@@ -79,6 +79,21 @@ enum Commands {
 
     /// Change le mot de passe maître
     Rotate,
+
+    /// Affiche le journal d'audit
+    Audit {
+        /// Afficher seulement les N dernières entrées
+        #[arg(short, long)]
+        last: Option<usize>,
+
+        /// Filtrer par type d'opération (init, set, get, delete, list, rotate)
+        #[arg(short, long)]
+        operation: Option<String>,
+
+        /// Filtrer par clé de secret
+        #[arg(short, long)]
+        key: Option<String>,
+    },
 }
 
 fn default_vault_path() -> PathBuf {
@@ -103,6 +118,9 @@ fn main() -> Result<()> {
         Commands::Delete { key } => commands::cmd_delete(&cli.vault, &key),
         Commands::List { tag } => commands::cmd_list(&cli.vault, tag),
         Commands::Rotate => commands::cmd_rotate(&cli.vault),
+        Commands::Audit { last, operation, key } => {
+            commands::cmd_audit(&cli.vault, last, operation, key)
+        }
     };
 
     if let Err(e) = result {
