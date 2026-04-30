@@ -1,0 +1,12 @@
+[package]
+name = "securevault"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[workspace]
+members = [
+    "vault-core",
+    "vault-cli"
+]

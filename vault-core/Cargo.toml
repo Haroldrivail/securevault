@@ -1,0 +1,31 @@
+[package]
+name = "vault-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Chiffrement AES-256-GCM
+aes-gcm = "0.10"
+
+# Dérivation de clé par mot de passe
+argon2 = "0.5"
+
+# Génération de nombres aléatoires cryptographiquement sûrs
+rand = { version = "0.8", features = ["getrandom"] }
+
+# Sérialisation/Désérialisation
+serde = { version = "1", features = ["derive"] }
+bincode = "1"
+
+# Gestion des erreurs
+thiserror = "1"
+
+# Horodatage
+chrono = { version = "0.4", features = ["serde"] }
+
+# Encodage base64 (utile pour l'export)
+base64 = "0.21"
+
+[dev-dependencies]
+# Macros pratiques pour les tests
+pretty_assertions = "1"
