@@ -1,4 +1,5 @@
 mod commands;
+mod exec;
 mod password;
 
 use anyhow::{Result};
@@ -94,6 +95,22 @@ enum Commands {
         #[arg(short, long)]
         key: Option<String>,
     },
+
+    /// Exécute une commande avec les secrets injectés en variables d'environnement
+    #[command(name = "exec")]
+    Exec {
+        /// Noms des secrets à injecter (tous si omis)
+        #[arg(short, long, action = clap::ArgAction::Append)]
+        secret: Vec<String>,
+
+        /// Exporter en .env au lieu d'exécuter
+        #[arg(long)]
+        export: bool,
+
+        /// La commande à exécuter et ses arguments (après --)
+        #[arg(last = true, required_unless_present = "export")]
+        command: Vec<String>,
+    },
 }
 
 fn default_vault_path() -> PathBuf {
@@ -120,6 +137,9 @@ fn main() -> Result<()> {
         Commands::Rotate => commands::cmd_rotate(&cli.vault),
         Commands::Audit { last, operation, key } => {
             commands::cmd_audit(&cli.vault, last, operation, key)
+        }
+        Commands::Exec { secret, export, command } => {
+            exec::cmd_exec(&cli.vault, secret, command, export)
         }
     };
 

@@ -1,1 +1,38 @@
+# Rust
 /target
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Vault files (IMPORTANT: ne jamais commiter les vaults non chiffrés)
+*.vault
+*.vault.tmp
+*.audit.log
+*.audit.jsonl
+
+# Environment files (secrets en clair)
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test_vault.db
+test_vault.db.audit.log
+test_script.py
+test.vault
+test.vault.audit.log
+
+# Backup files
+*.backup
+*.bak
