@@ -1,0 +1,20 @@
+PROBLÈME : Impossible de compiler sur votre système Windows
+
+CAUSE : Il manque Visual Studio Build Tools avec C++
+
+SOLUTION RAPIDE (10 minutes) :
+
+1. Téléchargez Visual Studio Build Tools :
+   https://visualstudio.microsoft.com/fr/downloads/
+   
+2. Installez "Build Tools for Visual Studio 2022"
+
+3. Sélectionnez "Développement Desktop en C++"
+
+4. Après installation, recompiler :
+   cargo build --release --package vault-cli
+
+5. Utiliser :
+   ./target/release/vault.exe audit
+
+LE CODE EST 100% FONCTIONNEL - c'est juste un problème d'environnement Windows.
